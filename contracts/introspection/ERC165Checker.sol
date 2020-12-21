@@ -99,7 +99,7 @@ library ERC165Checker {
         returns (bool, bool)
     {
         bytes memory encodedParams = abi.encodeWithSelector(_INTERFACE_ID_ERC165, interfaceId);
-        (bool success, bytes memory result) = account.staticcall{ gas: 30000 }(encodedParams);
+        (bool success, bytes memory result) = account.staticcall(encodedParams);
         if (result.length < 32) return (false, false);
         return (success, abi.decode(result, (bool)));
     }
