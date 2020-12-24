@@ -37,8 +37,8 @@ contract('ProxyAdmin', function (accounts) {
     });
   });
 
-  describe('#changeProxyAdmin', function () {
-    it('fails to change proxy admin if its not the proxy owner', async function () {
+  describe.only('#changeProxyAdmin', function () {
+    it.only('fails to change proxy admin if its not the proxy owner', async function () {
       await expectRevert(
         this.proxyAdmin.changeProxyAdmin(this.proxy.address, newAdmin, { from: anotherAccount }),
         'caller is not the owner',
